@@ -18,17 +18,12 @@ linkedin_username: "melwitt"
 #########################################################################################
 ######### Nothing below needs to be changed (unless you know what you're doing) #########
 #########################################################################################
-theme: "minima"
+#theme: "minima"
+remote_theme: jekyll/minima
 
-rss: rss
-
-kramdown:
-  syntax_highlighter_opts:
-    disable: true
-    
 plugins:
-  - jekyll-feed
   - jekyll-sitemap
+  - jekyll-remote-theme
 
 titles_from_headings:
   strip_title: true
