@@ -105,7 +105,7 @@ related to the request of interest.
 When you find the ERROR, look at log messages immediately before it. If you see
 the following log message (which is at level INFO):
 
-{% highlight console %}
+{% highlight plaintext %}
 Got no allocation candidates from the Placement API. This could be
 due to insufficient resources or a temporary occurence as compute nodes start
 up.
@@ -145,7 +145,7 @@ log message showing how many hosts were returned after running that filter. Log
 messages will look similar to this, they may be a bit different depending on
 what version of Nova you are running:
 
-{% highlight console %}
+{% highlight plaintext %}
 Starting with N host(s)
 Filter AvailabilityZoneFilter returned 1 host(s)
 Filter ComputeFilter returned 1 host(s)
