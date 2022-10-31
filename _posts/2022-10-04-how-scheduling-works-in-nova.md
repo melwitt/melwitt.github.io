@@ -1,13 +1,9 @@
-## How scheduling works in Nova
-
----
-
 Scheduling in [Nova][1] happens in a few steps. I will attempt to explain those
 steps here.
 
 [1]: https://docs.openstack.org/nova
 
-### Pre-filtering with Placement
+## Pre-filtering with Placement
 
 The first step in scheduling is a call to the [Placement][2] API with the
 requested vcpus, memory, disk, and traits. Placement will perform an efficient
@@ -23,7 +19,7 @@ service configuration.
 [3]: https://docs.openstack.org/nova/latest/configuration/config.html#scheduler.max_placement_results
 [4]: https://docs.openstack.org/placement/latest/configuration/config.html#placement.randomize_allocation_candidates
 
-### Nova scheduler filters
+## Nova scheduler filters
 
 After the list of compute host candidates is prefiltered and returned from
 Placement, they are run through the scheduler filters configured by
@@ -39,7 +35,7 @@ runs so that later filters will run on significantly fewer candidates.
 [5]: https://docs.openstack.org/nova/latest/configuration/config.html#filter_scheduler.enabled_filters
 [6]: https://docs.openstack.org/nova/latest/configuration/config.html#filter_scheduler.available_filters
 
-### Nova scheduler placement pattern
+## Nova scheduler placement pattern
 
 The scheduler generally defaults to a “pack” pattern where compute hosts are
 filled to maximum possible capacity, or “depth first”, before moving on to the
@@ -60,7 +56,7 @@ host candidate list choice.
 [7]: https://docs.openstack.org/nova/latest/configuration/config.html#filter_scheduler.host_subset_size
 [8]: https://docs.openstack.org/nova/latest/configuration/config.html#filter_scheduler.shuffle_best_same_weighed_hosts
 
-### Collision handling
+## Collision handling
 
 “Most” resources are claimed before a request is forwarded to a chosen compute
 host, but in the case of resources that are evaluated and claimed after landing
@@ -84,7 +80,7 @@ more rescheduling attempts before `NoValidHost` is raised.
 
 [9]: https://docs.openstack.org/nova/latest/configuration/config.html#scheduler.max_attempts
 
-### Troubleshooting NoValidHost
+## Troubleshooting NoValidHost
 
 When a server create or move request fails with `NoValidHost`, it means that
 the scheduling process could not find a compute host that meets the
@@ -100,7 +96,7 @@ related to the request of interest.
 
 [10]: https://docs.openstack.org/api-guide/compute/faults.html#tracking-errors-by-request-id
 
-#### Got no allocation candidates from the Placement API
+### Got no allocation candidates from the Placement API
 
 When you find the ERROR, look at log messages immediately before it. If you see
 the following log message (which is at level INFO):
@@ -135,7 +131,7 @@ shows the resource for which Placement has no capacity.
 
 [11]: https://docs.openstack.org/nova/latest/configuration/config.html#DEFAULT.debug
 
-#### Got allocation candidates from the Placement API
+### Got allocation candidates from the Placement API
 
 If you did not see the "no allocation candidates" INFO log message in the
 `nova-scheduler` log, it means that scheduling failed *after* the Placement API

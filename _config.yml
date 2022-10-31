@@ -1,34 +1,65 @@
-title: "$blog"
-author: "melwitt"
-description: "A place to share things that will hopefully help others." # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
+title: $blog
+author:
+  name: melwitt
+  email: melwittt@gmail.com
+description: > # this means to ignore newlines until "show_excerpts:"
+  A place to share things that will hopefully help others.
 
-# Email / Social media user names used by the minima theme:
-# All of these are optional and can be removed or commented out
-#email: "example@mail.com"
-twitter_username: "melwitt_"
-github_username: "melwitt"
-linkedin_username: "melwitt"
-#facebook_username: username
-#flickr_username: username
-#instagram_username: username
-#pinterest_username: username
-#youtube_username: username
-#googleplus_username: +username
+show_excerpts: true # set to true to show excerpts on the homepage
 
-#########################################################################################
-######### Nothing below needs to be changed (unless you know what you're doing) #########
-#########################################################################################
-#theme: "minima"
+# Minima date format
+# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
+minima:
+  date_format: "%b %-d, %Y"
+
+  # generate social links in footer
+  social_links:
+    twitter: melwitt_
+    github:  melwitt
+    # devto: jekyll
+    # dribbble: jekyll
+    # facebook: jekyll
+    # flickr:   jekyll
+    # instagram: jekyll
+    linkedin: melwitt
+    # pinterest: jekyll
+    # youtube: jekyll
+    # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
+    # youtube_channel_name: CloudCannon
+    # telegram: jekyll
+    # googleplus: +jekyll
+    # microdotblog: jekyll
+    # keybase: jekyll
+    # google_scholar_id: qc6CJjYAAAAJ
+
+    # Mastodon instances
+    # mastodon:
+    # - username: jekyll
+    #   instance: example.com
+    # - username: jekyll2
+    #   instance: example.com
+
+    # GitLab instances
+    # gitlab:
+    # - username: jekyll
+    #   instance: example.com
+    # - username: jekyll2
+    #   instance: example.com
+
+# If you want to link only specific pages in your header, uncomment
+# this and add the path to the pages in order as they should show up
+#header_pages:
+# - about.md
+
+# Build settings
+# theme: minima
 remote_theme: jekyll/minima
 
 plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-remote-theme
-
-titles_from_headings:
-  strip_title: true
-  collections: true
+ - jekyll-feed
+ - jekyll-remote-theme
+ - jekyll-seo-tag
+ - jekyll-sitemap
 
 defaults:
   - scope:
