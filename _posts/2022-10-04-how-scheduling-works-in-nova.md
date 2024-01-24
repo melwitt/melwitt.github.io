@@ -1,3 +1,8 @@
+---
+type: how_to
+tags: openstack nova
+---
+
 Scheduling in [Nova][1] happens in a few steps. I will attempt to explain those
 steps here.
 

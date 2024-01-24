@@ -1,21 +1,23 @@
 title: $blog
 author:
   name: melwitt
-  email: melwittt@gmail.com
 description: > # this means to ignore newlines until "show_excerpts:"
   A place to share things that will hopefully help others.
 
 show_excerpts: true # set to true to show excerpts on the homepage
 
+google_site_verification: 7GJG2CqUDb3q0oaH9mpwNtU7QHomFAj80wVhd1SpEdM
+
 # Minima date format
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
 minima:
   date_format: "%b %-d, %Y"
+  skin: solarized
 
   # generate social links in footer
   social_links:
-    twitter: melwitt_
-    github:  melwitt
+    # twitter: jekyll
+    github: melwitt
     # devto: jekyll
     # dribbble: jekyll
     # facebook: jekyll
@@ -53,10 +55,9 @@ minima:
 
 # Build settings
 # theme: minima
-remote_theme: jekyll/minima
+remote_theme: jekyll/minima@41b97699af658128fa9983e5312ca5516641f335
 
 plugins:
- - jekyll-feed
  - jekyll-remote-theme
  - jekyll-seo-tag
  - jekyll-sitemap
