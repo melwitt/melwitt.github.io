@@ -17,7 +17,7 @@ database query to select resource providers (compute hosts) that have capacity
 to fulfill the request. Placement will return at most
 [`[scheduler]max_placement_results`][3] resource providers from the Nova
 scheduler configuration. The setting defaults to `1000` results that are in an
-undefined but determinstic order. If random ordering is desired, set
+undefined but deterministic order. If random ordering is desired, set
 [`[placement]randomize_allocation_candidates`][4] to `True` in the Placement
 service configuration.
 
@@ -27,7 +27,7 @@ service configuration.
 
 ## Nova scheduler filters
 
-After the list of compute host candidates is prefiltered and returned from
+After the list of compute host candidates is pre-filtered and returned from
 Placement, they are run through the scheduler filters configured by
 [`[scheduler]enabled_filters`][5] in the Nova scheduler configuration. Note
 that any filters in `[scheduler]enabled_filters` must also be in
@@ -92,12 +92,12 @@ When a server create or move request fails with `NoValidHost`, it means that
 the scheduling process could not find a compute host that meets the
 requirements of the request. To get more detail about why scheduling the server
 failed, you'll want to look at the logs for the `nova-scheduler` service.
-Usually this file is named `nova-scheduler.log`.
+Usually the log file is named `nova-scheduler.log`.
 
 To locate the failed request, you can first search for the UUID of the server
 that failed to schedule, for example. On that log line, there will also be a
 [Request ID][10] which can be used the trace the request across services. The
-Request ID will generally be the best way to trace all of the log messages
+Request ID will generally be the best way to trace all the log messages
 related to the request of interest.
 
 [10]: https://docs.openstack.org/api-guide/compute/faults.html#tracking-errors-by-request-id
@@ -109,24 +109,24 @@ the following log message (which is at level INFO):
 
 {% highlight plaintext %}
 Got no allocation candidates from the Placement API. This could be
-due to insufficient resources or a temporary occurence as compute nodes start
+due to insufficient resources or a temporary occurrence as compute nodes start
 up.
 {% endhighlight %}
 
 it means that during the Placement pre-filtering step of scheduling, Nova asked
 Placement for compute hosts meeting the requirements of the request, but
 Placement did not find any. The next step in this case is to look at the
-Placement service logs. Usually this file is named `placement-api.log`.
+Placement service logs. Usually the log file is named `placement-api.log`.
 
 At this point, there is a fair chance you will not be able to find more
 specific information about the failure if the `nova-scheduler` and
 `placement-api` services are not configured to log at level DEBUG. It is ideal
 to temporarily set the log level for these two services to DEBUG and repeat the
-failed the request to gather more data. You can configure services to log at
-level DEBUG by setting the [`[DEFAULT]debug`][11] configuration option to
-`True` in the `nova.conf` and `placement.conf` files. Restart or send the HUP
-signal to the `nova-scheduler` and `placement-api` services to make them reload
-their configurations.
+failed request to gather more data. You can configure services to log at level
+DEBUG by setting the [`[DEFAULT]debug`][11] configuration option to `True` in
+the `nova.conf` and `placement.conf` files. Restart or send the HUP signal to
+the `nova-scheduler` and `placement-api` services to make them reload their
+configurations.
 
 Once you have logs for the failed request at level DEBUG, you will see a log
 message for each step in the filtering process. If you got the "no allocation
