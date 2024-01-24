@@ -1,4 +1,5 @@
 ---
+title: How Scheduling Works in OpenStack Nova
 type: how_to
 tags: openstack nova
 ---
