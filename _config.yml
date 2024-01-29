@@ -12,7 +12,7 @@ google_site_verification: 7GJG2CqUDb3q0oaH9mpwNtU7QHomFAj80wVhd1SpEdM
 # refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
 minima:
   date_format: "%b %-d, %Y"
-  skin: solarized
+  skin: auto
 
   # generate social links in footer
   social_links:
@@ -61,10 +61,11 @@ plugins:
  - jekyll-remote-theme
  - jekyll-seo-tag
  - jekyll-sitemap
+ - jemoji
 
 defaults:
   - scope:
       path: ""
-      type: post
+      type: posts
     values:
       tags: Other
